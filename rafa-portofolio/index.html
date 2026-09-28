@@ -1,20 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
+    <!-- =========================================
+         META
+    ========================================== -->
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
       name="description"
-      content="Rafa Mirza Firdaus — Software Developer & Technology Enthusiast passionate about building impactful products."
+      content="Rafa Mirza Firdaus — Software Developer & Technology Enthusiast."
     />
 
     <meta name="author" content="Rafa Mirza Firdaus" />
+    <meta
+      property="og:title"
+      content="Rafa Mirza Firdaus | Software Developer"
+    />
+
+    <meta
+      property="og:description"
+      content="Software Developer & Technology Enthusiast passionate about building impactful products."
+    />
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="assets/images/profile.jpg" />
 
     <title>Rafa Mirza Firdaus — Software Developer</title>
 
-    <!-- Google Fonts -->
+    <!-- =========================================
+         FONTS
+    ========================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -23,31 +40,60 @@
       rel="stylesheet"
     />
 
-    <!-- Main CSS -->
+    <!-- =========================================
+         CSS
+    ========================================== -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/themes.css" />
   </head>
 
   <body>
-    <!-- ==========================================
-         NAVIGATION
-    =========================================== -->
+    <!-- =========================================
+         PAGE LOADER
+    ========================================== -->
+    <div id="page-loader" class="page-loader" aria-hidden="true">
+      <div class="loader-content">
+        <span class="loader-logo">RM</span>
+        <span class="loader-line"></span>
+        <span class="loader-text">INITIALIZING...</span>
+      </div>
+    </div>
 
-    <header class="site-header">
-      <nav class="navbar" aria-label="Main navigation">
-        <a href="#home" class="logo"> RAFA<span>.</span> </a>
+    <!-- =========================================
+         CUSTOM CURSOR
+    ========================================== -->
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
 
-        <button
-          class="menu-toggle"
-          id="menu-toggle"
-          type="button"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+    <div class="cursor-outline" id="cursor-outline" aria-hidden="true"></div>
 
+    <!-- =========================================
+         BACKGROUND ENVIRONMENT
+    ========================================== -->
+    <div class="background-environment" aria-hidden="true">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <div class="ambient ambient-three"></div>
+
+      <div class="grid-background"></div>
+
+      <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- =========================================
+         HEADER / NAVIGATION
+    ========================================== -->
+    <header class="site-header" id="site-header">
+      <nav class="navbar container" aria-label="Primary Navigation">
+        <!-- Logo -->
+        <a href="#home" class="brand" aria-label="Rafa Mirza Firdaus Home">
+          <span class="brand-mark">RM</span>
+
+          <span class="brand-name"> RAFA </span>
+        </a>
+
+        <!-- Desktop Navigation -->
         <div class="nav-menu" id="nav-menu">
           <a href="#home" class="nav-link active"> Home </a>
 
@@ -71,640 +117,766 @@
 
           <a href="#contact" class="nav-link"> Contact </a>
         </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <button
+    id="theme-toggle"
+    class="theme-toggle"
+    type="button"
+    aria-label="Toggle theme"
+>
+    <span class="theme-toggle-indicator"></span>
+</button>
+
+          <!-- Language Toggle -->
+          <button
+            type="button"
+            class="language-toggle"
+            id="language-toggle"
+            aria-label="Switch language"
+          >
+            <span class="language-active">EN</span>
+            <span>/</span>
+            <span>ID</span>
+          </button>
+
+          <!-- Mobile Menu -->
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </nav>
     </header>
 
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
     <main>
-      <!-- ==========================================
+      <!-- =====================================
              HERO
-        =========================================== -->
-
-      <section id="home" class="hero section">
-        <div class="hero-container">
+        ====================================== -->
+      <section class="hero section" id="home" aria-labelledby="hero-title">
+        <div class="hero-container container">
+          <!-- Hero Content -->
           <div class="hero-content">
-            <p class="hero-eyebrow">Hello, I'm</p>
+            <p class="hero-eyebrow">SOFTWARE DEVELOPER</p>
+            <div class="availability-badge">
+              <span class="status-dot"></span>
 
-            <h1 class="hero-title">Rafa Mirza Firdaus</h1>
+              <span> Open to Work </span>
+            </div>
 
-            <h2 class="hero-subtitle">
-              Software Developer & Technology Enthusiast
-            </h2>
+            <h1 class="hero-title" id="hero-title">
+              Rafa Mirza
+              <span>Firdaus.</span>
+            </h1>
+
+            <p class="hero-role">Software Developer & Technology Enthusiast</p>
 
             <p class="hero-description">
-              Passionate about building impactful digital products and exploring
-              technology to solve real-world problems.
+              Building practical digital solutions through software, data, and
+              emerging technologies.
             </p>
 
+            <!-- Hero Actions -->
             <div class="hero-actions">
-              <a href="#projects" class="button button-primary">
-                Explore My Work
+              <a href="#about" class="button button-primary magnetic">
+                <span> Explore My Journey </span>
+
+                <span class="button-arrow" aria-hidden="true"> → </span>
               </a>
 
-              <a href="#contact" class="button button-secondary">
-                Let's Work Together
+              <a
+                href="assets/cv/CV_Rafa Mirza Firdaus_2501744.pdf"
+                class="button button-secondary"
+                download
+              >
+                Download CV
               </a>
             </div>
 
-            <div class="availability">
-              <span class="availability-dot"></span>
+            <!-- Hero Status -->
+            <div class="hero-status">
+              <span class="status-indicator"></span>
 
-              <span> Open to Work & Freelance </span>
+              <span> Open to Work & Opportunities </span>
             </div>
           </div>
 
-          <div class="hero-visual">
+          <!-- Hero Profile -->
+          <div class="hero-profile">
+            <div class="profile-wrapper">
+              <!-- Decorative Orbit -->
+              <div class="profile-wrapper">
+                <!-- PROFILE PHOTO -->
+               
 
-    <!-- Ambient Background -->
-    <div class="hero-glow"></div>
+             
 
-    <!-- Parallax Scene -->
-    <div class="profile-scene" id="profile-scene">
+              <!-- Profile Glow -->
+            <div class="profile-glow"></div>
 
-        <!-- Orbit Ring -->
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="orbit orbit-three"></div>
+              <!-- Professional Photo -->
+              
 
+        <!-- Scroll Indicator -->
+        <a
+          href="#achievements-preview"
+          class="scroll-indicator"
+          aria-label="Scroll to explore"
+        >
+          <span class="scroll-line"></span>
+          <span>SCROLL TO EXPLORE</span>
+        </a>
+      </section>
 
-        <!-- Technology Orbit -->
+      <!-- =====================================
+             ACHIEVEMENT SNAPSHOT
+        ====================================== -->
+      <section
+        class="achievement-preview section"
+        id="achievements-preview"
+        aria-labelledby="achievement-preview-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-eyebrow">ACHIEVEMENTS</p>
 
-        <div class="tech-orbit orbit-tech-one">
+            <h2 id="achievement-preview-title" class="section-title">
+              A journey backed by
+              <span>achievement.</span>
+            </h2>
 
-            <div class="tech-logo">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
-                    alt="HTML5"
-                >
-            </div>
+            <p class="section-description">
+              Selected milestones that represent my learning journey,
+              persistence, and growth.
+            </p>
+          </div>
 
-        </div>
+          <div class="achievement-grid">
+            <article class="achievement-card glass-card">
+              <span class="achievement-number"> 01 </span>
 
+              <div class="achievement-icon">🏆</div>
 
-        <div class="tech-orbit orbit-tech-two">
+              <h3>National Achievement</h3>
 
-            <div class="tech-logo">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
-                    alt="CSS3"
-                >
-            </div>
+              <p>Competition and academic achievement.</p>
+            </article>
 
-        </div>
+            <article class="achievement-card glass-card">
+              <span class="achievement-number"> 02 </span>
 
+              <div class="achievement-icon">🎓</div>
 
-        <div class="tech-orbit orbit-tech-three">
+              <h3>Duta Pendidikan</h3>
 
-            <div class="tech-logo">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                    alt="JavaScript"
-                >
-            </div>
+              <p>Duta Pendidikan Muda Indonesia.</p>
+            </article>
 
-        </div>
+            <article class="achievement-card glass-card">
+              <span class="achievement-number"> 03 </span>
 
+              <div class="achievement-icon">🚀</div>
 
-        <div class="tech-orbit orbit-tech-four">
+              <h3>Product Builder</h3>
 
-            <div class="tech-logo">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                    alt="Python"
-                >
-            </div>
+              <p>Continuously building and learning through technology.</p>
+            </article>
+          </div>
 
-        </div>
-
-
-        <div class="tech-orbit orbit-tech-five">
-
-            <div class="tech-logo">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-                    alt="Git"
-                >
-            </div>
-
-        </div>
-
-
-        <div class="tech-orbit orbit-tech-six">
-
-            <div class="tech-logo">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-                    alt="GitHub"
-                >
-            </div>
-
-        </div>
-
-
-        <div class="tech-orbit orbit-tech-seven">
-
-            <div class="tech-logo">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"
-                    alt="Flutter"
-                >
-            </div>
-
-        </div>
-
-
-        <div class="tech-orbit orbit-tech-eight">
-
-            <div class="tech-logo">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
-                    alt="MySQL"
-                >
-            </div>
-
-        </div>
-
-
-        <!-- Profile -->
-
-        <div class="profile-wrapper">
-
-            <div class="profile-placeholder">
-
-                <span>RM</span>
-
-            </div>
-
-        </div>
-
-
-        <!-- Floating Information -->
-
-        <div class="floating-card floating-card-one">
-            SOFTWARE
-        </div>
-
-        <div class="floating-card floating-card-two">
-            DEVELOPER
-        </div>
-
-        <div class="floating-card floating-card-three">
-            OPEN TO WORK
-        </div>
-
-    </div>
-
-</div>
+          <div class="section-action">
+            <a href="#achievements" class="text-link">
+              View All Achievements →
+            </a>
+          </div>
         </div>
       </section>
 
-      <!-- ==========================================
+      <!-- =====================================
              ABOUT
-        =========================================== -->
-
-      <section id="about" class="about section">
-        <div class="container">
-          <div class="section-heading">
-            <span class="section-number"> 01 </span>
-
-            <p class="section-label">About Me</p>
-
-            <h2>
-              Building my journey
-              <span>one product at a time.</span>
-            </h2>
+        ====================================== -->
+      <section class="about section" id="about" aria-labelledby="about-title">
+        <div class="container about-container">
+          <div class="about-visual">
+            <div class="about-photo glass-card">
+              <img
+                src="assets/images/profile.jpg"
+                alt="Rafa Mirza Firdaus"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <div class="about-content">
-            <div class="about-image">
-              <div class="image-placeholder">
-                <img
-                  class="about-photo"
-                  src="assets/images/rafa.webp"
-                  alt="Rafa Mirza Firdaus"
-                />
+            <p class="section-eyebrow">ABOUT ME</p>
+
+            <h2 id="about-title" class="section-title">
+              A student.
+              <span>A builder.</span>
+              A lifelong learner.
+            </h2>
+
+            <p>
+              I am Rafa Mirza Firdaus, a Software Developer and Technology
+              Enthusiast currently studying Software Engineering.
+            </p>
+
+            <p>
+              I am interested in building digital products, exploring software
+              development, data, cybersecurity, artificial intelligence, and
+              emerging technologies.
+            </p>
+
+            <p>
+              My goal is to continuously transform ideas and real-world problems
+              into useful digital solutions.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <strong> 01 </strong>
+
+                <span> Learn continuously </span>
               </div>
-            </div>
 
-            <div class="about-text">
-              <p>
-                I'm Rafa Mirza Firdaus, a Software Developer & Technology
-                Enthusiast interested in building digital products and exploring
-                modern technology.
-              </p>
+              <div class="highlight-item">
+                <strong> 02 </strong>
 
-              <p>
-                My journey starts from understanding software development
-                fundamentals and gradually turning ideas into useful digital
-                solutions.
-              </p>
+                <span> Build practical products </span>
+              </div>
 
-              <a href="#contact" class="text-link">
-                Let's build something together →
-              </a>
+              <div class="highlight-item">
+                <strong> 03 </strong>
+
+                <span> Solve real problems </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================
-             SKILLS
-        =========================================== -->
-
-      <section id="skills" class="skills section">
+      <!-- =====================================
+             SKILLS PREVIEW
+        ====================================== -->
+      <section
+        class="skills section"
+        id="skills"
+        aria-labelledby="skills-title"
+      >
         <div class="container">
           <div class="section-heading">
-            <span class="section-number"> 02 </span>
+            <p class="section-eyebrow">TECHNOLOGY</p>
 
-            <p class="section-label">Skills</p>
-
-            <h2>
-              Technologies I'm
-              <span>working with.</span>
+            <h2 id="skills-title" class="section-title">
+              Skills I'm building
+              <span>for the future.</span>
             </h2>
           </div>
 
-          <div class="skills-grid">
-            <article class="skill-card">
-              <span class="skill-icon"> HTML </span>
+          <div class="skills-layout">
+            <div class="skills-orbit-wrapper">
+              <div class="skills-orbit">
+                <span class="skill-logo"> HTML </span>
 
-              <h3>HTML</h3>
+                <span class="skill-logo"> CSS </span>
 
-              <p>Semantic structure and accessible web foundations.</p>
-            </article>
+                <span class="skill-logo"> JS </span>
 
-            <article class="skill-card">
-              <span class="skill-icon"> CSS </span>
+                <span class="skill-logo"> PY </span>
 
-              <h3>CSS</h3>
+                <span class="skill-logo"> SQL </span>
 
-              <p>Responsive layouts, interfaces and animations.</p>
-            </article>
+                <span class="skill-logo"> GIT </span>
+              </div>
 
-            <article class="skill-card">
-              <span class="skill-icon"> JS </span>
+              <div class="skills-core">RM</div>
+            </div>
 
-              <h3>JavaScript</h3>
+            <div class="skills-content">
+              <div class="skill-group">
+                <span class="skill-label"> CORE </span>
 
-              <p>Interactive interfaces and web functionality.</p>
-            </article>
+                <div class="skill-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Python</span>
+                  <span>SQL</span>
+                  <span>Git</span>
+                </div>
+              </div>
 
-            <article class="skill-card">
-              <span class="skill-icon"> GIT </span>
+              <div class="skill-group">
+                <span class="skill-label"> DEVELOPING </span>
 
-              <h3>Git & GitHub</h3>
+                <div class="skill-tags">
+                  <span>Data</span>
+                  <span>AI</span>
+                  <span>Cybersecurity</span>
+                  <span>Flutter</span>
+                </div>
+              </div>
 
-              <p>Version control and collaborative development.</p>
-            </article>
+              <div class="skill-group">
+                <span class="skill-label"> EXPLORING </span>
 
-            <article class="skill-card skill-card-muted">
-              <span class="skill-icon"> API </span>
-
-              <h3>API</h3>
-
-              <p>Currently developing my understanding.</p>
-            </article>
-
-            <article class="skill-card skill-card-muted">
-              <span class="skill-icon"> SQL </span>
-
-              <h3>SQL & Database</h3>
-
-              <p>Currently developing my database skills.</p>
-            </article>
+                <div class="skill-tags">
+                  <span>Cloud</span>
+                  <span>DevOps</span>
+                  <span>Machine Learning</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================
+      <!-- =====================================
              PROJECTS
-        =========================================== -->
-
-      <section id="projects" class="projects section">
+        ====================================== -->
+      <section
+        class="projects section"
+        id="projects"
+        aria-labelledby="projects-title"
+      >
         <div class="container">
           <div class="section-heading">
-            <span class="section-number"> 03 </span>
+            <p class="section-eyebrow">SELECTED WORK</p>
 
-            <p class="section-label">Selected Projects</p>
-
-            <h2>
+            <h2 id="projects-title" class="section-title">
               Things I'm
               <span>building.</span>
             </h2>
+
+            <p class="section-description">
+              Real projects built to learn, solve problems, and create value.
+            </p>
           </div>
 
-          <div class="projects-grid">
-            <article class="project-card project-placeholder">
+          <div class="project-grid" id="project-grid">
+            <!--
+                        Projects will later be generated
+                        dynamically through projects.js.
+                    -->
+
+            <article class="project-card glass-card">
               <div class="project-image">
-                <span> PRODUCT 001 </span>
+                <span> COMING SOON </span>
               </div>
 
               <div class="project-content">
-                <p class="project-category">Coming Soon</p>
+                <span class="project-category"> FLAGSHIP PRODUCT </span>
 
-                <h3>Our First Product</h3>
+                <h3>Your First Product</h3>
 
-                <p>A product we'll research, design and build from zero.</p>
+                <p>
+                  A product that we will build together from research to launch.
+                </p>
 
-                <a href="#case-studies" class="text-link">
-                  Explore Case Study →
-                </a>
+                <a href="#case-studies" class="text-link"> Explore → </a>
+              </div>
+            </article>
+
+            <article class="project-card glass-card">
+              <div class="project-image">
+                <span> COMING SOON </span>
+              </div>
+
+              <div class="project-content">
+                <span class="project-category"> WEB DEVELOPMENT </span>
+
+                <h3>Future Web Project</h3>
+
+                <p>
+                  A professional web project developed as part of the journey.
+                </p>
+
+                <a href="#case-studies" class="text-link"> Explore → </a>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================
+      <!-- =====================================
              CASE STUDIES
-        =========================================== -->
-
-      <section id="case-studies" class="case-studies section">
+        ====================================== -->
+      <section
+        class="case-studies section"
+        id="case-studies"
+        aria-labelledby="case-studies-title"
+      >
         <div class="container">
           <div class="section-heading">
-            <span class="section-number"> 04 </span>
+            <p class="section-eyebrow">CASE STUDIES</p>
 
-            <p class="section-label">Case Studies</p>
-
-            <h2>
+            <h2 id="case-studies-title" class="section-title">
               From problem
               <span>to product.</span>
             </h2>
           </div>
 
-          <div class="case-study-placeholder">
-            <span class="case-study-number"> 01 </span>
+          <div class="case-study-flow">
+            <div class="case-step">
+              <span>01</span>
+              <h3>Research</h3>
+              <p>Understand users and the problem.</p>
+            </div>
 
-            <div>
-              <p>PRODUCT 001</p>
+            <div class="case-step">
+              <span>02</span>
+              <h3>Planning</h3>
+              <p>Define requirements and MVP.</p>
+            </div>
 
-              <h3>Case study coming soon.</h3>
+            <div class="case-step">
+              <span>03</span>
+              <h3>Design</h3>
+              <p>Create the experience and interface.</p>
+            </div>
 
-              <p>
-                Research → Problem → Solution → Design → Development → Result
-              </p>
+            <div class="case-step">
+              <span>04</span>
+              <h3>Development</h3>
+              <p>Build, test, and iterate.</p>
+            </div>
+
+            <div class="case-step">
+              <span>05</span>
+              <h3>Launch</h3>
+              <p>Deploy and continuously improve.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================
+      <!-- =====================================
              EXPERIENCE
-        =========================================== -->
-
-      <section id="experience" class="experience section">
+        ====================================== -->
+      <section
+        class="experience section"
+        id="experience"
+        aria-labelledby="experience-title"
+      >
         <div class="container">
           <div class="section-heading">
-            <span class="section-number"> 05 </span>
+            <p class="section-eyebrow">EXPERIENCE</p>
 
-            <p class="section-label">Experience</p>
-
-            <h2>
-              My journey
-              <span>so far.</span>
+            <h2 id="experience-title" class="section-title">
+              My professional
+              <span>journey.</span>
             </h2>
           </div>
 
           <div class="timeline">
             <article class="timeline-item">
-              <span class="timeline-date"> 2025 — Present </span>
+              <span class="timeline-year"> 2026 </span>
 
-              <div>
+              <div class="timeline-content glass-card">
+                <h3>Software Engineering Journey</h3>
+
+                <p>
+                  Continuing to develop technical skills and build practical
+                  projects.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <span class="timeline-year"> 2025 </span>
+
+              <div class="timeline-content glass-card">
                 <h3>Universitas Pendidikan Indonesia</h3>
 
-                <p>Rekayasa Perangkat Lunak</p>
+                <p>Software Engineering student.</p>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================
+      <!-- =====================================
              SERVICES
-        =========================================== -->
-
-      <section id="services" class="services section">
+        ====================================== -->
+      <section
+        class="services section"
+        id="services"
+        aria-labelledby="services-title"
+      >
         <div class="container">
           <div class="section-heading">
-            <span class="section-number"> 06 </span>
+            <p class="section-eyebrow">SERVICES</p>
 
-            <p class="section-label">Services</p>
-
-            <h2>
-              How I can
-              <span>help.</span>
+            <h2 id="services-title" class="section-title">
+              Let's build something
+              <span>useful.</span>
             </h2>
           </div>
 
           <div class="services-grid">
-            <article class="service-card">
+            <article class="service-card glass-card">
               <span class="service-number"> 01 </span>
 
-              <h3>Website Development</h3>
+              <h3>Web Development</h3>
 
               <p>
-                Modern and responsive websites for individuals, businesses and
-                organizations.
+                Modern landing pages, portfolio websites, and business websites.
               </p>
             </article>
 
-            <article class="service-card">
+            <article class="service-card glass-card">
               <span class="service-number"> 02 </span>
 
-              <h3>Web Applications</h3>
+              <h3>Digital Solutions</h3>
 
-              <p>
-                Functional digital products designed around real user needs.
-              </p>
+              <p>Interactive web experiences and simple digital products.</p>
             </article>
 
-            <article class="service-card">
+            <article class="service-card glass-card">
               <span class="service-number"> 03 </span>
 
-              <h3>UI Implementation</h3>
-
-              <p>Turning interface concepts into responsive web experiences.</p>
-            </article>
-
-            <article class="service-card">
-              <span class="service-number"> 04 </span>
-
-              <h3>Website Maintenance</h3>
+              <h3>Data & Automation</h3>
 
               <p>
-                Improvements, updates and maintenance for existing websites.
+                Data processing, simple automation, and technology-based
+                solutions.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================
+      <!-- =====================================
              CERTIFICATES
-        =========================================== -->
-
-      <section id="certificates" class="certificates section">
+        ====================================== -->
+      <section
+        class="certificates section"
+        id="certificates"
+        aria-labelledby="certificates-title"
+      >
         <div class="container">
           <div class="section-heading">
-            <span class="section-number"> 07 </span>
+            <p class="section-eyebrow">CERTIFICATES</p>
 
-            <p class="section-label">Certificates</p>
-
-            <h2>
-              Learning and
-              <span>growth.</span>
+            <h2 id="certificates-title" class="section-title">
+              Learning never
+              <span>stops.</span>
             </h2>
           </div>
 
-          <div class="empty-state">
-            <p>Certificates will be added as I continue learning.</p>
+          <div class="certificate-grid" id="certificate-grid">
+            <article class="certificate-card glass-card">
+              <div class="certificate-preview">CERTIFICATE</div>
+
+              <div class="certificate-content">
+                <h3>Certificate Coming Soon</h3>
+
+                <p>New learning milestone.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================
+      <!-- =====================================
              ACHIEVEMENTS
-        =========================================== -->
-
-      <section id="achievements" class="achievements section">
+        ====================================== -->
+      <section
+        class="achievements section"
+        id="achievements"
+        aria-labelledby="achievements-title"
+      >
         <div class="container">
           <div class="section-heading">
-            <span class="section-number"> 08 </span>
+            <p class="section-eyebrow">ACHIEVEMENTS</p>
 
-            <p class="section-label">Achievements</p>
-
-            <h2>
+            <h2 id="achievements-title" class="section-title">
               Milestones along
-              <span>the journey.</span>
+              <span>the way.</span>
             </h2>
           </div>
 
-          <div class="empty-state">
-            <p>Achievements will be added from my verified experience.</p>
+          <div class="achievement-list" id="achievement-list">
+            <article class="achievement-row">
+              <span class="achievement-year"> 2025 </span>
+
+              <div>
+                <h3>Duta Pendidikan Muda Indonesia</h3>
+
+                <p>Educational leadership and youth development experience.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================
+      <!-- =====================================
              BLOG
-        =========================================== -->
-
-      <section id="blog" class="blog section">
+        ====================================== -->
+      <section class="blog section" id="blog" aria-labelledby="blog-title">
         <div class="container">
           <div class="section-heading">
-            <span class="section-number"> 09 </span>
+            <p class="section-eyebrow">DEVELOPER JOURNAL</p>
 
-            <p class="section-label">Blog</p>
-
-            <h2>
-              Learning in
-              <span>public.</span>
+            <h2 id="blog-title" class="section-title">
+              Learning,
+              <span>building, sharing.</span>
             </h2>
           </div>
 
-          <div class="empty-state">
-            <p>Articles and development notes will appear here.</p>
-          </div>
-        </div>
-      </section>
+          <div class="blog-grid">
+            <article class="blog-card glass-card">
+              <span class="blog-date"> JOURNEY / 01 </span>
 
-      <!-- ==========================================
-             CONTACT
-        =========================================== -->
-
-      <section id="contact" class="contact section">
-        <div class="container">
-          <div class="contact-wrapper">
-            <div class="contact-content">
-              <span class="section-label"> Let's Connect </span>
-
-              <h2>
-                Have an idea?
-                <span>Let's build it.</span>
-              </h2>
+              <h3>Building My First Product</h3>
 
               <p>
-                I'm open to freelance projects, collaborations and opportunities
-                to build meaningful digital products.
+                Documenting the journey from idea to a real digital product.
               </p>
+
+              <a href="#" class="text-link"> Read Journal → </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+             CONTACT
+        ====================================== -->
+      <section
+        class="contact section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="container contact-container">
+          <div class="contact-content">
+            <p class="section-eyebrow">CONTACT</p>
+
+            <h2 id="contact-title" class="section-title">
+              Ready to build
+              <span>something?</span>
+            </h2>
+
+            <p>
+              Whether you have a project, an opportunity, or simply an idea
+              worth exploring, let's start a conversation.
+            </p>
+
+            <div class="contact-links">
+              <a href="mailto:rafamirzafirdaus@gmail.com"> Email </a>
+
+              <a href="https://wa.me/+628978528587"> WhatsApp </a>
+
+              <a href="https://id.linkedin.com/in/rafa-mirza-firdaus-661a10365"> LinkedIn </a>
+
+              <a href="https://github.com/R4mFaaaw/R4mFaaaw"> GitHub </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form action="https://formspree.io/f/xwlpalke" method="POST">
+            <div class="form-group">
+              <label for="name"> Name </label>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+              />
             </div>
 
-            <form class="contact-form" id="contact-form">
-              <div class="form-group">
-                <label for="name"> Name </label>
+            <div class="form-group">
+              <label for="email"> Email </label>
 
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
 
-              <div class="form-group">
-                <label for="email"> Email </label>
+            <div class="form-group">
+              <label for="subject"> Subject </label>
 
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="How can we work together?"
+                required
+              />
+            </div>
 
-              <div class="form-group">
-                <label for="message"> Message </label>
+            <div class="form-group">
+              <label for="message"> Message </label>
 
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Tell me about your project..."
-                  required
-                ></textarea>
-              </div>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Tell me about your idea..."
+                required
+              ></textarea>
+            </div>
 
-              <button type="submit" class="button button-primary">
-                Send Message →
-              </button>
-            </form>
-          </div>
+            <button type="submit" class="button button-primary">
+              <span> Send Message </span>
+              <div id="form-status" class="form-status"></div>
+
+              <span aria-hidden="true"> → </span>
+            </button>
+          </form>
         </div>
       </section>
     </main>
 
-    <!-- ==========================================
+    <!-- =========================================
          FOOTER
-    =========================================== -->
-
+    ========================================== -->
     <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <div>
-            <a href="#home" class="logo"> RAFA<span>.</span> </a>
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <span class="brand-mark"> RM </span>
 
-            <p>Software Developer & Technology Enthusiast.</p>
-          </div>
+          <p>Software Developer & Technology Enthusiast.</p>
+        </div>
 
-          <div class="footer-links">
-            <a href="#home"> Home </a>
+        <div class="footer-navigation">
+          <a href="#home"> Home </a>
 
-            <a href="#projects"> Projects </a>
+          <a href="#about"> About </a>
 
-            <a href="#contact"> Contact </a>
-          </div>
+          <a href="#projects"> Projects </a>
+
+          <a href="#contact"> Contact </a>
         </div>
 
         <div class="footer-bottom">
-          <p>© 2026 Rafa Mirza Firdaus. All rights reserved.</p>
+          <span> © 2026 Rafa Mirza Firdaus </span>
 
-          <p>Built with HTML, CSS & JavaScript.</p>
+          <span> Built with HTML, CSS & JavaScript. </span>
         </div>
       </div>
     </footer>
 
-    <!-- Main JavaScript -->
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->  
     <script src="js/script.js"></script>
   </body>
 </html>

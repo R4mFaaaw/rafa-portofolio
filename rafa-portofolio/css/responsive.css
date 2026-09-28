@@ -1,0 +1,872 @@
+/* =========================================================
+   RAFA MIRZA FIRDAUS — PORTFOLIO
+   RESPONSIVE SYSTEM
+   Desktop → Tablet → Mobile
+========================================================= */
+
+
+/* =========================================================
+   01. LARGE TABLET / SMALL LAPTOP
+   max-width: 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    /* ---------- Navigation ---------- */
+
+    .nav-menu {
+        gap: 16px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+    }
+
+
+    /* ---------- Hero ---------- */
+
+    .hero-container {
+        grid-template-columns:
+            1fr 0.85fr;
+
+        gap: 30px;
+    }
+
+    .hero-title {
+        font-size:
+            clamp(3.5rem, 7vw, 6rem);
+    }
+
+    .hero-profile {
+        min-height: 560px;
+    }
+
+    .profile-photo {
+        width: 260px;
+        height: 335px;
+    }
+
+
+    /* ---------- About ---------- */
+
+    .about-container {
+        gap: 50px;
+    }
+
+
+    /* ---------- Skills ---------- */
+
+    .skills-layout {
+        gap: 50px;
+    }
+
+
+    /* ---------- Services ---------- */
+
+    .services-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .services-grid .service-card:last-child {
+        grid-column:
+            1 / -1;
+    }
+
+
+    /* ---------- Blog ---------- */
+
+    .blog-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .blog-grid .blog-card:last-child {
+        grid-column:
+            1 / -1;
+    }
+}
+
+
+/* =========================================================
+   02. TABLET
+   max-width: 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+    /* ---------- Global ---------- */
+
+    .container {
+        width:
+            min(
+                calc(100% - 36px),
+                var(--container-width)
+            );
+    }
+
+
+    /* ---------- Header ---------- */
+
+    .site-header {
+        padding-top: 12px;
+    }
+
+    .navbar {
+        min-height: 64px;
+
+        padding:
+            10px 14px;
+    }
+
+
+    .nav-menu {
+        position: fixed;
+
+        top: 88px;
+        left: 18px;
+        right: 18px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 12px;
+
+        background:
+            rgba(5,7,13,0.90);
+
+        border:
+            1px solid
+            var(--border-primary);
+
+        border-radius:
+            var(--radius-lg);
+
+        backdrop-filter:
+            blur(25px);
+
+        -webkit-backdrop-filter:
+            blur(25px);
+
+        box-shadow:
+            0 25px 80px
+            rgba(0,0,0,0.45);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform:
+            translateY(-15px);
+
+        transition:
+            opacity var(--transition-normal),
+            visibility var(--transition-normal),
+            transform var(--transition-normal);
+    }
+
+
+    .nav-menu.active {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform:
+            translateY(0);
+    }
+
+
+    .nav-link {
+        display: block;
+
+        padding:
+            13px 15px;
+
+        border-radius:
+            10px;
+
+        font-size: 13px;
+    }
+
+
+    .nav-link:hover,
+    .nav-link.active {
+        background:
+            var(--surface-primary);
+    }
+
+
+    .nav-link::after {
+        display: none;
+    }
+
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    /* ---------- Hero ---------- */
+
+    .hero {
+        min-height: auto;
+
+        padding-top: 150px;
+
+        padding-bottom: 120px;
+    }
+
+
+    .hero-container {
+        grid-template-columns:
+            1fr;
+
+        text-align: center;
+
+        gap: 60px;
+    }
+
+
+    .hero-content {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .hero-title {
+        max-width: 700px;
+
+        font-size:
+            clamp(3.5rem, 11vw, 6.5rem);
+    }
+
+
+    .hero-description {
+        max-width: 600px;
+    }
+
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+
+    .hero-status {
+        justify-content: center;
+    }
+
+
+    .hero-profile {
+        min-height: 500px;
+    }
+
+
+    /* ---------- Achievement ---------- */
+
+    .achievement-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .achievement-grid .achievement-card:last-child {
+        grid-column:
+            1 / -1;
+    }
+
+
+    /* ---------- About ---------- */
+
+    .about-container {
+        grid-template-columns:
+            0.8fr 1.2fr;
+
+        gap: 40px;
+    }
+
+
+    /* ---------- Skills ---------- */
+
+    .skills-layout {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .skills-orbit-wrapper {
+        margin-bottom: 30px;
+    }
+
+
+    /* ---------- Projects ---------- */
+
+    .project-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* ---------- Case Studies ---------- */
+
+    .case-study-flow {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .case-step {
+        border-bottom:
+            1px solid
+            var(--border-secondary);
+    }
+
+
+    .case-step:nth-child(2) {
+        border-right: none;
+    }
+
+
+    .case-step:last-child {
+        grid-column:
+            1 / -1;
+
+        border-right: none;
+    }
+
+
+    /* ---------- Certificates ---------- */
+
+    .certificate-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .certificate-grid .certificate-card:last-child {
+        grid-column:
+            1 / -1;
+    }
+
+
+    /* ---------- Contact ---------- */
+
+    .contact-container {
+        grid-template-columns:
+            1fr;
+
+        gap: 50px;
+    }
+
+
+    /* ---------- Footer ---------- */
+
+    .footer-container {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .footer-navigation {
+        justify-content:
+            flex-start;
+    }
+}
+
+
+/* =========================================================
+   03. MOBILE
+   max-width: 640px
+========================================================= */
+
+@media (max-width: 640px) {
+
+    /* ---------- Global ---------- */
+
+    :root {
+        --section-padding:
+            90px;
+    }
+
+
+    .container {
+        width:
+            calc(100% - 30px);
+    }
+
+
+    /* ---------- Typography ---------- */
+
+    .section-title {
+        font-size:
+            clamp(2.3rem, 11vw, 3.4rem);
+    }
+
+
+    .section-description {
+        font-size: 15px;
+    }
+
+
+    /* ---------- Brand ---------- */
+
+    .brand-name {
+        display: none;
+    }
+
+
+    .brand-mark {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+
+    /* ---------- Hero ---------- */
+
+    .hero {
+        padding-top: 125px;
+
+        padding-bottom: 80px;
+    }
+
+
+    .hero-eyebrow {
+        font-size: 10px;
+    }
+
+
+    .hero-title {
+        font-size:
+            clamp(3rem, 16vw, 5rem);
+
+        letter-spacing:
+            -0.07em;
+    }
+
+
+    .hero-role {
+        font-size: 16px;
+    }
+
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+    .hero-actions {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+
+    .hero-profile {
+        min-height: 400px;
+    }
+
+
+    .profile-wrapper {
+        width:
+            min(390px, 100vw);
+    }
+
+
+    .profile-photo {
+        width: 210px;
+        height: 275px;
+    }
+
+
+    .profile-orbit {
+        inset: 8%;
+    }
+
+
+    .orbit-two {
+        inset: 20%;
+    }
+
+
+    .orbit-logo {
+        width: 38px;
+        height: 38px;
+
+        font-size: 7px;
+    }
+
+
+    .floating-tech {
+        font-size: 8px;
+
+        padding:
+            7px 9px;
+    }
+
+
+    .tech-one {
+        top: 18%;
+        left: 1%;
+    }
+
+
+    .tech-two {
+        top: 35%;
+        right: 1%;
+    }
+
+
+    .tech-three {
+        bottom: 20%;
+        left: 2%;
+    }
+
+
+    .tech-four {
+        bottom: 10%;
+        right: 3%;
+    }
+
+
+    .scroll-indicator {
+        display: none;
+    }
+
+
+    /* ---------- Achievement ---------- */
+
+    .achievement-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .achievement-grid .achievement-card:last-child {
+        grid-column:
+            auto;
+    }
+
+
+    .achievement-card {
+        min-height: 230px;
+
+        padding: 25px;
+    }
+
+
+    /* ---------- About ---------- */
+
+    .about-container {
+        grid-template-columns:
+            1fr;
+
+        gap: 40px;
+    }
+
+
+    .about-photo {
+        max-width: 340px;
+
+        margin-inline: auto;
+    }
+
+
+    .about-highlights {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* ---------- Skills ---------- */
+
+    .skills-orbit-wrapper {
+        width:
+            min(340px, 95vw);
+    }
+
+
+    .skills-core {
+        width: 100px;
+        height: 100px;
+
+        font-size: 22px;
+    }
+
+
+    .skill-logo {
+        width: 45px;
+        height: 45px;
+
+        font-size: 8px;
+    }
+
+
+    /* ---------- Projects ---------- */
+
+    .project-content {
+        padding: 22px;
+    }
+
+
+    .project-content h3 {
+        font-size: 23px;
+    }
+
+
+    /* ---------- Case Studies ---------- */
+
+    .case-study-flow {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .case-step {
+        min-height: auto;
+
+        padding: 25px;
+
+        border-right: none;
+    }
+
+
+    .case-step:nth-child(2),
+    .case-step:last-child {
+        border-right: none;
+    }
+
+
+    .case-step:last-child {
+        grid-column: auto;
+    }
+
+
+    .case-step h3 {
+        margin-top: 35px;
+    }
+
+
+    /* ---------- Timeline ---------- */
+
+    .timeline-item {
+        grid-template-columns:
+            1fr;
+
+        gap: 8px;
+    }
+
+
+    .timeline-year {
+        padding-top: 0;
+    }
+
+
+    .timeline-content {
+        padding: 22px;
+    }
+
+
+    /* ---------- Services ---------- */
+
+    .services-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .services-grid .service-card:last-child {
+        grid-column: auto;
+    }
+
+
+    .service-card {
+        min-height: 250px;
+
+        padding: 25px;
+    }
+
+
+    .service-card h3 {
+        margin-top: 55px;
+
+        font-size: 22px;
+    }
+
+
+    /* ---------- Certificates ---------- */
+
+    .certificate-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .certificate-grid .certificate-card:last-child {
+        grid-column: auto;
+    }
+
+
+    /* ---------- Achievements ---------- */
+
+    .achievement-row {
+        grid-template-columns:
+            1fr;
+
+        gap: 8px;
+
+        padding:
+            24px 0;
+    }
+
+
+    .achievement-row h3 {
+        font-size: 19px;
+    }
+
+
+    .achievement-row:hover {
+        padding-left: 10px;
+    }
+
+
+    /* ---------- Blog ---------- */
+
+    .blog-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .blog-grid .blog-card:last-child {
+        grid-column: auto;
+    }
+
+
+    .blog-card {
+        padding: 25px;
+    }
+
+
+    .blog-card h3 {
+        margin-top: 35px;
+
+        font-size: 21px;
+    }
+
+
+    /* ---------- Contact ---------- */
+
+    .contact-form {
+        padding: 22px;
+    }
+
+
+    .contact-links {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .contact-links a {
+        text-align: center;
+    }
+
+
+    /* ---------- Footer ---------- */
+
+    .site-footer {
+        padding-top: 60px;
+    }
+
+
+    .footer-navigation {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 14px;
+    }
+
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    /* ---------- Cursor ---------- */
+
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   04. VERY SMALL DEVICES
+   max-width: 380px
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .container {
+        width:
+            calc(100% - 24px);
+    }
+
+
+    .hero-title {
+        font-size:
+            2.8rem;
+    }
+
+
+    .profile-photo {
+        width: 185px;
+        height: 245px;
+    }
+
+
+    .profile-wrapper {
+        width:
+            310px;
+    }
+
+
+    .orbit-logo {
+        width: 32px;
+        height: 32px;
+    }
+
+
+    .floating-tech {
+        display: none;
+    }
+
+
+    .skills-orbit-wrapper {
+        width:
+            290px;
+    }
+}

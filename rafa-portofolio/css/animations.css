@@ -1,0 +1,1090 @@
+/* =========================================================
+   RAFA MIRZA FIRDAUS — PORTFOLIO
+   ANIMATION SYSTEM
+   Futuristic / Parallax / Orbit / Reveal
+========================================================= */
+
+/* =========================================================
+   01. PAGE LOADER
+========================================================= */
+
+.page-loader {
+  animation: loaderFadeOut 900ms ease 1.2s forwards;
+}
+
+.loader-content {
+  animation: loaderEnter 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.loader-line {
+  transform-origin: left;
+
+  animation: loaderProgress 1100ms ease both;
+}
+
+@keyframes loaderEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes loaderProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes loaderFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* =========================================================
+   02. GLOBAL REVEAL
+========================================================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(45px);
+
+  transition:
+    opacity 900ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+
+  transform: translateX(-60px);
+
+  transition:
+    opacity 900ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+
+  transform: translateX(60px);
+
+  transition:
+    opacity 900ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+
+  transform: scale(0.9);
+
+  transition:
+    opacity 900ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-scale.active {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+/* =========================================================
+   03. STAGGERED CHILDREN
+========================================================= */
+
+.stagger > * {
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.stagger.active > * {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.stagger.active > *:nth-child(1) {
+  transition-delay: 80ms;
+}
+
+.stagger.active > *:nth-child(2) {
+  transition-delay: 160ms;
+}
+
+.stagger.active > *:nth-child(3) {
+  transition-delay: 240ms;
+}
+
+.stagger.active > *:nth-child(4) {
+  transition-delay: 320ms;
+}
+
+.stagger.active > *:nth-child(5) {
+  transition-delay: 400ms;
+}
+
+.stagger.active > *:nth-child(6) {
+  transition-delay: 480ms;
+}
+
+/* =========================================================
+   04. HERO ENTRANCE
+========================================================= */
+
+.hero-eyebrow {
+  animation: heroElementIn 900ms 250ms both;
+}
+
+.hero-title {
+  animation: heroElementIn 1000ms 350ms both;
+}
+
+.hero-role {
+  animation: heroElementIn 900ms 500ms both;
+}
+
+.hero-description {
+  animation: heroElementIn 900ms 600ms both;
+}
+
+.hero-actions {
+  animation: heroElementIn 900ms 700ms both;
+}
+
+.hero-status {
+  animation: heroElementIn 900ms 800ms both;
+}
+
+@keyframes heroElementIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   05. HERO TITLE LIGHT
+========================================================= */
+
+.hero-title span {
+  background-size: 200% 200%;
+
+  animation: gradientFlow 6s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================================================
+   06. PROFILE BREATHING
+========================================================= */
+
+.profile-photo {
+  animation: profileFloat 6s ease-in-out infinite;
+}
+
+@keyframes profileFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================================================
+   07. PROFILE GLOW
+========================================================= */
+
+.profile-glow {
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.75;
+
+    transform: scale(1.12);
+  }
+}
+
+/* =========================================================
+   08. ORBIT SYSTEM
+========================================================= */
+
+/*
+   IMPORTANT:
+
+   Jangan memberikan animation:
+   transform: rotate(...)
+   langsung ke orbit-logo.
+
+   Karena logo bisa ikut berputar pada sumbu
+   dirinya sendiri.
+
+   Kita gunakan wrapper/orbit sebagai sistem rotasi.
+*/
+
+.profile-orbit {
+  animation: orbitRotate 22s linear infinite;
+}
+
+.orbit-two {
+  animation: orbitRotateReverse 30s linear infinite;
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* =========================================================
+   09. ORBIT LOGO COUNTER ROTATION
+========================================================= */
+
+/*
+   Jika HTML menggunakan logo langsung sebagai
+   child dari orbit, class ini membuat logo
+   tetap tegak ketika orbit berputar.
+*/
+
+.orbit-one .orbit-logo {
+  animation: counterRotate 22s linear infinite;
+}
+
+.orbit-two .orbit-logo {
+  animation: counterRotateReverse 30s linear infinite;
+}
+
+@keyframes counterRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes counterRotateReverse {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   10. ORBIT LOGO FLOAT
+========================================================= */
+
+
+.orbit-logo:hover {
+  color: var(--text-primary);
+
+  border-color: rgba(34, 211, 238, 0.5);
+
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.18);
+}
+
+/* =========================================================
+   11. FLOATING TECHNOLOGY
+========================================================= */
+
+.floating-tech {
+  animation: techFloat 5s ease-in-out infinite;
+}
+
+.tech-two {
+  animation-delay: -1.4s;
+}
+
+.tech-three {
+  animation-delay: -2.6s;
+}
+
+.tech-four {
+  animation-delay: -3.8s;
+}
+
+@keyframes techFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* =========================================================
+   12. GRID ENVIRONMENT
+========================================================= */
+
+.grid-background {
+  animation: gridDrift 25s linear infinite;
+}
+
+@keyframes gridDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(70px, 70px, 0);
+  }
+}
+
+/* =========================================================
+   13. AMBIENT LIGHT
+========================================================= */
+
+.ambient-one {
+  animation: ambientMoveOne 15s ease-in-out infinite alternate;
+}
+
+.ambient-two {
+  animation: ambientMoveTwo 18s ease-in-out infinite alternate;
+}
+
+.ambient-three {
+  animation: ambientMoveThree 21s ease-in-out infinite alternate;
+}
+
+@keyframes ambientMoveOne {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(120px, 80px, 0) scale(1.2);
+  }
+}
+
+@keyframes ambientMoveTwo {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(-100px, 120px, 0) scale(1.25);
+  }
+}
+
+@keyframes ambientMoveThree {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(80px, -100px, 0) scale(1.15);
+  }
+}
+
+/* =========================================================
+   14. BUTTON SHINE
+========================================================= */
+
+.button-primary {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.button-primary::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 700ms ease;
+}
+
+.button-primary:hover::before {
+  left: 140%;
+}
+
+/* =========================================================
+   15. CARD LIGHT SWEEP
+========================================================= */
+
+.glass-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.035),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 900ms ease;
+
+  pointer-events: none;
+}
+
+.glass-card:hover::after {
+  left: 140%;
+}
+
+/* =========================================================
+   16. ACHIEVEMENT HOVER
+========================================================= */
+
+.achievement-card:hover .achievement-icon {
+  animation: iconBounce 500ms ease;
+}
+
+@keyframes iconBounce {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.2) rotate(-5deg);
+  }
+
+  70% {
+    transform: scale(0.95) rotate(3deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* =========================================================
+   17. PROJECT IMAGE
+========================================================= */
+
+.project-image {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.project-image::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.18),
+    transparent 60%
+  );
+
+  transform: scale(0.7);
+
+  opacity: 0;
+
+  transition:
+    transform 700ms ease,
+    opacity 700ms ease;
+}
+
+.project-card:hover .project-image::before {
+  transform: scale(1);
+
+  opacity: 1;
+}
+
+/* =========================================================
+   18. TIMELINE MOTION
+========================================================= */
+
+.timeline-content {
+  transition:
+    transform 400ms ease,
+    border-color 400ms ease;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(8px);
+}
+
+/* =========================================================
+   19. SERVICE CARD MOTION
+========================================================= */
+
+.service-card:hover .service-number {
+  animation: numberPulse 500ms ease;
+}
+
+@keyframes numberPulse {
+  50% {
+    transform: translateX(8px);
+
+    color: var(--text-primary);
+  }
+}
+
+/* =========================================================
+   20. BLOG MOTION
+========================================================= */
+
+.blog-card:hover .blog-date {
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   21. SECTION DIVIDER
+========================================================= */
+
+.section::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: min(900px, 80%);
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+
+  transform: translateX(-50%);
+}
+
+/* =========================================================
+   22. SCROLL INDICATOR
+========================================================= */
+
+.scroll-line {
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0%,
+  100% {
+    transform: scaleX(0.45);
+
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scaleX(1);
+
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   23. CUSTOM CURSOR
+========================================================= */
+
+.cursor-outline {
+  transition:
+    width 180ms ease,
+    height 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.cursor-outline.cursor-hover {
+  width: 55px;
+  height: 55px;
+
+  border-color: rgba(34, 211, 238, 0.7);
+
+  background: rgba(34, 211, 238, 0.04);
+}
+
+/* =========================================================
+   24. PARALLAX ELEMENTS
+========================================================= */
+
+/*
+   Elemen dengan class .parallax
+   akan dikontrol oleh JavaScript.
+
+   CSS hanya menyiapkan smooth movement.
+*/
+
+.parallax {
+  --parallax-y: 0px;
+
+  transform: translate3d(0, var(--parallax-y), 0);
+
+  will-change: transform;
+}
+
+.parallax-slow {
+  will-change: transform;
+}
+
+.parallax-fast {
+  will-change: transform;
+}
+
+/* =========================================================
+   25. MAGNETIC ELEMENT
+========================================================= */
+
+.magnetic {
+  will-change: transform;
+
+  transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* =========================================================
+   26. TEXT SHIMMER
+========================================================= */
+
+.text-shimmer {
+  background: linear-gradient(110deg, #ffffff 20%, #64748b 40%, #ffffff 60%);
+
+  background-size: 200% auto;
+
+  background-clip: text;
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  animation: shimmerText 5s linear infinite;
+}
+
+@keyframes shimmerText {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* =========================================================
+   27. PULSE STATUS
+========================================================= */
+
+.status-indicator {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.45);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.9);
+  }
+}
+
+/* =========================================================
+   28. MOBILE MOTION OPTIMIZATION
+========================================================= */
+
+@media (max-width: 640px) {
+  /*
+       Mengurangi beberapa efek berat pada mobile.
+       Orbit tetap bergerak.
+    */
+
+  .ambient {
+    filter: blur(90px);
+
+    opacity: 0.08;
+  }
+
+  .grid-background {
+    animation-duration: 40s;
+  }
+
+  .profile-orbit {
+    animation-duration: 28s;
+  }
+
+  .orbit-two {
+    animation-duration: 34s;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================================
+   29. REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader,
+  .loader-content,
+  .loader-line,
+  .hero-eyebrow,
+  .hero-title,
+  .hero-role,
+  .hero-description,
+  .hero-actions,
+  .hero-status,
+  .profile-photo,
+  .profile-glow,
+  .profile-orbit,
+  .orbit-two,
+  .orbit-one .orbit-logo,
+  .orbit-two .orbit-logo,
+  .floating-tech,
+  .grid-background,
+  .ambient-one,
+  .ambient-two,
+  .ambient-three,
+  .hero-title span,
+  .scroll-line,
+  .status-indicator,
+  .text-shimmer {
+    animation: none !important;
+  }
+}
+/* =========================================================
+   PROFILE ORBIT
+========================================================= */
+
+.profile-wrapper {
+  position: relative;
+
+  width: 420px;
+  height: 420px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.profile-image {
+  position: relative;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  z-index: 5;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.12);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* =========================================================
+   ORBIT CONTAINER
+========================================================= */
+
+.profile-orbit {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    animation: orbitRotation 40s linear infinite;
+    pointer-events: none;
+}
+
+/* =========================================================
+   ORBIT RING
+========================================================= */
+
+.profile-orbit {
+    display: none;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.orbit-logo {
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 18px;
+
+  background: rgba(10, 15, 25, 0.72);
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: auto;
+
+  transition:
+    scale 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.orbit-logo:hover {
+  scale: 1.15;
+
+  border-color: rgba(34, 211, 238, 0.5);
+
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.18);
+}
+
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
+
+.orbit-logo img {
+  width: 30px;
+  height: 30px;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* =========================================================
+   POSITIONS
+========================================================= */
+
+.logo-1 {
+  top: 5%;
+  left: 50%;
+}
+
+.logo-2 {
+  top: 25%;
+  left: 92%;
+}
+
+.logo-3 {
+  top: 75%;
+  left: 92%;
+}
+
+.logo-4 {
+  top: 95%;
+  left: 50%;
+}
+
+.logo-5 {
+  top: 75%;
+  left: 8%;
+}
+
+.logo-6 {
+  top: 25%;
+  left: 8%;
+}
+
+/* =========================================================
+   ORBIT ANIMATION
+========================================================= */
+
+@keyframes orbitRotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* =========================================================
+   PERFORMANCE MODE
+   Subtle animation only
+========================================================= */
+
+.profile-orbit {
+  animation-duration: 40s;
+}
+
+.orbit-logo {
+  animation: none;
+}
+
+.hero,
+.section {
+  animation: none;
+}
+
+.background-particles {
+  animation: none;
+}
+
+.glow-effect {
+  animation: none;
+}
+
+/* Reduce expensive blur */
+.glass,
+.glass-card,
+.navbar {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Keep transitions subtle */
+button,
+a,
+.card,
+.orbit-logo,
+.nav-link {
+  transition-duration: 0.2s;
+}
+/* TEMPORARY PERFORMANCE TEST */
+
+*,
+*::before,
+*::after {
+    animation: none !important;
+    transition: none !important;
+}
+/* =========================================
+   PAGE LOADER
+========================================= */
+
+.page-loader {
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.page-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
